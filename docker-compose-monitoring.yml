@@ -9,8 +9,10 @@ services:
       - '/var/lib/docker/:/var/lib/docker:ro'
     ports:
       - '8080:8080'
+    networks:
+      - reddit
   prometheus:
-    image: csergey88/prometheus
+    image: csergey88/prometheus:latest
     ports: 
       - 9090:9090
     volumes:
