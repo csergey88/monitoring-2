@@ -1,0 +1,31 @@
+version: '2.0'
+services:
+  post_db:
+    image: csergey88/mongodb:latest
+    volumes:
+      - post_db:/data/db
+    networks:
+      - reddit
+    ports:
+      - 27017:27017
+  ui:
+    image: csergey88/ui:latest
+    ports:
+      - 9292:9292/tcp
+    networks:
+      - reddit
+  post:
+    image: csergey88/post:latest
+    networks:
+      - reddit
+  comment:
+    image: csergey88/comment:latest
+    networks:
+      - reddit
+  
+volumes:
+  post_db:
+  prometheus_data:
+
+networks:
+  reddit:
