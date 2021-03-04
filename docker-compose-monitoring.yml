@@ -49,6 +49,15 @@ services:
       - 3000:3000
     networks: 
       - reddit
+  alertmanager:
+    image: csergey88/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+    ports:
+      - 9093:9093
+    networks: 
+      - reddit
+
 
 
 volumes:
